@@ -1,4 +1,4 @@
-<img src="https://github.com/alek5ey/CifsMount/blob/master/docs/img/CifsMount-Icon-64.png" alt="CifsMount"/>
+<img src="https://github.com/alek5ey/CifsMount/blob/main/docs/img/CifsMount-Icon-64.png" alt="CifsMount"/>
 
 # CifsMount
 
