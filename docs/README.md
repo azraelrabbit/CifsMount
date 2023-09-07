@@ -19,7 +19,7 @@ Install-Package CifsMount
    ```shell
    sudo apt -y install cifs-utils
    ```
-2. DDisable the password verification prompt for `mount` and `umount` commands for the user. For example, `test` user (change for your user!)
+2. Disable the password verification prompt for `mount` and `umount` commands for the user. For example, `test` user (change for your user!)
     ```shell
     sudo bash -c 'cat >> /etc/sudoers <<< "test ALL=(ALL) NOPASSWD: /usr/bin/mount, /usr/bin/umount"'
     ```
