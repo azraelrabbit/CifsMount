@@ -1,5 +1,3 @@
-<img src="https://github.com/alek5ey/CifsMount/blob/main/docs/img/CifsMount-Icon-64.png" alt="CifsMount"/>
-
 # CifsMount
 
 [![Nuget downloads](https://img.shields.io/nuget/v/cifsmount.svg)](https://www.nuget.org/packages/CifsMount/)
@@ -17,11 +15,15 @@ Install-Package CifsMount
 
 ## Requirements
 
-1. Disable the password verification prompt for the user. For example, `test` user (change for your user!)
+1. Install `cifs-utils` dependency
+   ```shell
+   sudo apt -y install cifs-utils
+   ```
+2. DDisable the password verification prompt for `mount` and `umount` commands for the user. For example, `test` user (change for your user!)
     ```shell
     sudo bash -c 'cat >> /etc/sudoers <<< "test ALL=(ALL) NOPASSWD: /usr/bin/mount, /usr/bin/umount"'
     ```
-2. Create a directory to mount. Grant write permissions
+3. Create a directory to mount. Grant write permissions
     ```shell
     sudo mkdir -p /mnt/my_mount
     sudo chown test:test -R /mnt/my_mount
