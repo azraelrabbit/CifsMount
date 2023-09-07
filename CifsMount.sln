@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2D93232C-8459-4F7A-A93D-990DBE32D92C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{375AADFA-B6F5-405A-80C2-B7AFC68AF995}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CifsMount", "src\CifsMount\CifsMount.csproj", "{4ECB5321-673A-4488-8CC5-303E29C58FCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CifsMount.Example", "src\CifsMount.Example\CifsMount.Example.csproj", "{293664C8-54DE-49D3-A04A-6E92796B7B8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CifsMount.UnitTests", "tests\CifsMount.UnitTests\CifsMount.UnitTests.csproj", "{99C5E46B-A078-4CBF-A1D9-07E9A52236E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4ECB5321-673A-4488-8CC5-303E29C58FCD} = {2D93232C-8459-4F7A-A93D-990DBE32D92C}
+		{293664C8-54DE-49D3-A04A-6E92796B7B8A} = {2D93232C-8459-4F7A-A93D-990DBE32D92C}
+		{99C5E46B-A078-4CBF-A1D9-07E9A52236E4} = {375AADFA-B6F5-405A-80C2-B7AFC68AF995}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ECB5321-673A-4488-8CC5-303E29C58FCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ECB5321-673A-4488-8CC5-303E29C58FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ECB5321-673A-4488-8CC5-303E29C58FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ECB5321-673A-4488-8CC5-303E29C58FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{293664C8-54DE-49D3-A04A-6E92796B7B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{293664C8-54DE-49D3-A04A-6E92796B7B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{293664C8-54DE-49D3-A04A-6E92796B7B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{293664C8-54DE-49D3-A04A-6E92796B7B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99C5E46B-A078-4CBF-A1D9-07E9A52236E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99C5E46B-A078-4CBF-A1D9-07E9A52236E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99C5E46B-A078-4CBF-A1D9-07E9A52236E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99C5E46B-A078-4CBF-A1D9-07E9A52236E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
