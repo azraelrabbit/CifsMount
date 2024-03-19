@@ -11,7 +11,7 @@ var options = new CifsMountOptions("user", "password", "domain.xyz")
     Arguments = new []{ "rw" }
 };
 
-using (var cifsClient = new CifsMountClient(options))
+using (var cifsClient = new CifsMountClient(false,options))
 using (var cifsMounted = cifsClient.Mount(shareDirectory, targetDirectory))
 {
     Console.WriteLine(cifsMounted.Directory.Exists);

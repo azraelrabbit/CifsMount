@@ -23,7 +23,12 @@ internal class CifsMountExecutor : ICifsMountExecutor
     /// <returns>Execute results</returns>
     RunCommandResult ICifsMountExecutor.RunCommand(string command, string? args, bool isSudo)
     {
+
         var processStartInfo = BuildProcessStartInfo(command, args, isSudo);
+
+#if DEBUG
+        Console.WriteLine(processStartInfo.FileName+" | "+processStartInfo.Arguments);
+#endif
         var process = StartProcess(processStartInfo);
 
         var output = process.StandardOutput.ReadToEnd();

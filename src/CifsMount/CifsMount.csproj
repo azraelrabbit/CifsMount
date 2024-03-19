@@ -7,14 +7,14 @@
         <SignAssembly>true</SignAssembly>
         <NeutralLanguage>en-US</NeutralLanguage>
         <!-- Frameworks and language features -->
-        <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+        <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <ImplicitUsings>enable</ImplicitUsings>
         <!-- Packaging -->
-        <Version>1.0.1</Version>
-        <PackageId>CifsMount</PackageId>
+        <Version>1.0.1.1</Version>
+        <PackageId>AZ.CifsMount</PackageId>
         <PackageTags>Windows Share; Network Drive; CIFS; SMB; Mount; Mnt;</PackageTags>
         <Authors>Aleksey Spiridonov</Authors>
         <Copyright>Copyright 2023 (c) Aleksey Spiridonov. All rights reserved.</Copyright>
