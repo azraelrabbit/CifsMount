@@ -10,6 +10,8 @@ namespace CifsMount;
 /// </summary>
 public class CifsMountClient : ICifsMountClient, IDisposable
 {
+    private readonly bool _useSudo;
+
     /// <summary>
     /// Mount options
     /// </summary>
@@ -42,13 +44,15 @@ public class CifsMountClient : ICifsMountClient, IDisposable
     /// <summary>
     /// Create client with options
     /// </summary>
+    /// <param name="useSudo">whether you need use sudo</param>
     /// <param name="options">Mount options</param>
-    public CifsMountClient(CifsMountOptions? options = null)
+    public CifsMountClient(bool useSudo,CifsMountOptions? options = null)
         : this(options ?? new(),
             new CifsMountExecutor(),
             new CifsMountParser(),
             new CifsMountValidator())
     {
+        _useSudo = useSudo;
     }
 
     /// <summary>
@@ -75,6 +79,7 @@ public class CifsMountClient : ICifsMountClient, IDisposable
     /// </summary>
     /// <param name="shareDirectory">Shared directory in format: //server/RootFolder/SubFolder</param>
     /// <param name="localDirectory">Local directory where the shared directory will be mounted</param>
+ 
     /// <returns>Mount client</returns>
     /// <exception cref="PlatformNotSupportedException">Only running on Linux</exception>
     public ICifsMountDirectory Mount(string shareDirectory, string localDirectory)
@@ -91,6 +96,7 @@ public class CifsMountClient : ICifsMountClient, IDisposable
         var mountedDirectory = new CifsMountDirectory(
             shareDirectory,
             localDirectory,
+            _useSudo,
             _options,
             _currentUserInfo!,
             _cifsMountExecutor,

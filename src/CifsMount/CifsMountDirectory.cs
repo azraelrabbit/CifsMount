@@ -39,12 +39,14 @@ public class CifsMountDirectory : ICifsMountDirectory
     /// Mount client
     /// </summary>
     private readonly CifsMountClient _cifsMountClient;
+    private readonly bool _useSudo;
 
     /// <summary>
     /// Create mounted directory
     /// </summary>
     /// <param name="shareDirectory">Origin shared directory</param>
     /// <param name="targetDirectory">Local mounted directory path</param>
+    /// <param name="useSudo"></param>
     /// <param name="options">Mount options</param>
     /// <param name="currentUserInfo">Current user information</param>
     /// <param name="cifsMountExecutor">Commands executor</param>
@@ -52,6 +54,7 @@ public class CifsMountDirectory : ICifsMountDirectory
     internal CifsMountDirectory(
         string shareDirectory,
         string targetDirectory,
+        bool useSudo,
         CifsMountOptions options,
         CurrentUserInfo currentUserInfo,
         ICifsMountExecutor cifsMountExecutor,
@@ -64,6 +67,7 @@ public class CifsMountDirectory : ICifsMountDirectory
         _currentUserInfo = currentUserInfo;
         _cifsMountExecutor = cifsMountExecutor;
         _cifsMountClient = cifsMountClient;
+        _useSudo = useSudo;
     }
 
     /// <summary>
@@ -82,7 +86,7 @@ public class CifsMountDirectory : ICifsMountDirectory
         var mountArguments = BuildMountArguments();
         var commandArguments = $"-t cifs -o {mountArguments} \"{ShareDirectory}\" \"{_targetDirectory}\"";
 
-        var mountCmdResult = _cifsMountExecutor.RunCommand("mount", commandArguments, true);
+        var mountCmdResult = _cifsMountExecutor.RunCommand("mount", commandArguments, _useSudo);
         if (!mountCmdResult.IsSuccessful)
             throw new UnableMountException($"Unable mount directory: {mountCmdResult.Message}");
     }
@@ -158,7 +162,7 @@ public class CifsMountDirectory : ICifsMountDirectory
     /// <exception cref="UnableUnmountException">Unable unmount directory</exception>
     private void Unmount()
     {
-        var umountCmdResult = _cifsMountExecutor.RunCommand("umount", _targetDirectory, true);
+        var umountCmdResult = _cifsMountExecutor.RunCommand("umount", _targetDirectory, _useSudo);
         if (!umountCmdResult.IsSuccessful)
             throw new UnableUnmountException($"Unable unmount directory: {umountCmdResult.Message}");
 
